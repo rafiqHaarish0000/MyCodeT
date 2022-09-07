@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/list_fragment">
+
+    <fragment
+        android:id="@+id/add_fragment"
+        android:name="com.example.mycode.NavigationComponents.fragments.fragments.add.AddFragment"
+        android:label="Add"
+        tools:layout="@layout/fragment_add_fragment" >
+        <action
+            android:id="@+id/action_add_fragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/list_fragment"
+        android:name="com.example.mycode.NavigationComponents.fragments.fragments.list.ListFragment"
+        android:label="List"
+        tools:layout="@layout/fragment_list_fragment" >
+        <action
+            android:id="@+id/action_list_fragment_to_add_fragment"
+            app:destination="@id/add_fragment" />
+        <action
+            android:id="@+id/action_list_fragment_to_updateFragment"
+            app:destination="@id/updateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateFragment"
+        android:name="com.example.mycode.NavigationComponents.fragments.fragments.update.UpdateFragment"
+        android:label="Update" >
+        <action
+            android:id="@+id/action_updateFragment_to_list_fragment"
+            app:destination="@id/list_fragment" />
+        <argument
+            android:name="currentUser"
+            app:argType="com.example.mycode.Room_Databse.model.UserData" />
+    </fragment>
+</navigation>
